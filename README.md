@@ -3,7 +3,7 @@ This is a collection of widgets I made for my own personal use. Suggestions are 
 ## Banner
 <p align="center">
 <img src="https://i.imgur.com/7oZAsC0.png">
-<img src="https://i.imgur.com/HXlQEoa.png" width="700">
+<img src="https://i.imgur.com/HXlQEoa.png" width="650">
 </p>
 
 ### Description
