@@ -1,0 +1,53 @@
+div.dashboard-widget-banner {
+	line-height: 22px;
+}
+div.dashboard-widget-banner .container {
+	display: table;
+	padding: 0 10px;
+	margin: auto;
+    width: calc(100% - 20px);
+}
+div.dashboard-widget-banner .container .row {
+	display: table-row;
+}
+div.dashboard-widget-banner .container .row .cell {
+	display: table-cell;
+	min-width: 80px;
+}
+div.dashboard-widget-banner .container .row .cell.label {
+	width: 10%;
+	min-width: 80px;
+}
+div.dashboard-widget-banner .container .row .cell.data {
+	width: 90%;
+}
+div.dashboard-widget-banner .container .row .cell.data .subcell {
+	min-width: 190px;
+	max-width: 220px;
+	color: #888;
+	float: left;
+	font-size: 10px;
+}
+div.dashboard-widget-banner .container .row .cell.data .subcell .bar {
+	width: 50px;
+	margin: 6px 8px 0 0;
+}
+div.dashboard-widget-banner .bar {
+	height: 8px;
+	width: 100%;
+	background: #DDDDDD;
+	border-radius: 0px;
+	display: inline-block;
+	position: relative;
+}
+div.dashboard-widget-banner .bar.scale {
+    background-image: linear-gradient(to left, #FFFFFF 2px, transparent 1px);
+    background-size: 10% 100%;
+    background-repeat: repeat-x;
+}
+div.dashboard-widget-banner .bar .fill {
+	height: 8px;
+	border-radius: 0px;
+	width: 0%;
+	background: red;
+}
