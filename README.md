@@ -1,7 +1,10 @@
 This is a collection of widgets I made for my own personal use. Suggestions are more than welcome.
 
 ## Banner
-![screenshot](https://i.imgur.com/GYuvOyw.png)
+<p align="center">
+<img src="https://i.imgur.com/7oZAsC0.png">
+<img src="https://i.imgur.com/HXlQEoa.png">
+</p>
 ### Description
 A versatile widget for creating custom visual banners on your dashboard. Displays titles, descriptive text, and background images with lots of styling options. Perfect for highlighting key information, adding aesthetic elements or adding inline comments to your dashboard.
 ### Key features
