@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2.0,
+	"id": "banner",
+	"type": "widget",
+	"name": "Banner",
+	"namespace": "banner",
+	"version": "1.0",
+	"author": "github.com/obviousaichicken",
+	"description": "Displays text and images that can be styled for dashboard optimization.",
+	"actions": {
+		"widget.banner.view": {
+			"class": "WidgetView"
+		}
+	},
+	"widget": {
+		"js_class": "WidgetBanner",
+		"refresh_rate": 0
+	},
+	"assets": {
+		"css": ["widget.css"],
+		"js": ["class.widget.js"]
+	}
+}

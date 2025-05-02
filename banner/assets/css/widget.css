@@ -1,0 +1,28 @@
+div.dashboard-widget-banner {
+	line-height: 1.5;
+}
+div.dashboard-widget-banner .banner {
+	background-position: center;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	height: 100%;
+	overflow: auto;
+	padding: 10px;
+	width: 100%;
+	word-wrap: break-word;
+}
+div.dashboard-widget-banner .banner img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+div.dashboard-widget-banner .banner .title {
+	width: 100%;
+}
+div.dashboard-widget-banner .banner .description {
+	white-space: pre-wrap;
+	width: 100%;
+}
+div.dashboard-widget-banner .banner .description a {
+	border-bottom: 1px solid;
+}
