@@ -1,0 +1,78 @@
+/*
+ * MIT License
+ * Copyright (c) 2025 ObviousAIChicken
+ * github.com/obviousaichicken/zabbix_widgets
+ */
+
+:root {
+  --row-padding: 6px;
+  --bar-height: 9px;
+}
+.dashboard-widget-host_overview #container {
+  margin: 3px 10px 0 10px;
+  display: grid;
+  container-type: inline-size;
+  gap: var(--row-padding) 0;
+}
+/* Additional margin when the header is hidden */
+.dashboard-widget-host_overview #container.hidden_header {
+  margin-top: 10px;
+}
+.dashboard-widget-host_overview #container .row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 25px;
+}
+/* Single metric (cpu/ram/load) */
+.dashboard-widget-host_overview #container .row .data {
+  display: grid;
+  align-items: start;
+  align-content: center;
+}
+/* Multi-metric (interfaces/disks/partitions) */
+.dashboard-widget-host_overview #container .row .data.multi {
+  grid-template-columns: repeat(1, minmax(220px, 1fr));
+  gap: var(--row-padding) 0;
+}
+/* >525px: 2 columns */
+@container (min-width: 525px) {
+  .dashboard-widget-host_overview #container .row .data.multi {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+/* >746px: 3 columns */
+@container (min-width: 746px) {
+  .dashboard-widget-host_overview #container .row .data.multi {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+}
+/* >966px: 4 columns */
+@container (min-width: 966px) {
+  .dashboard-widget-host_overview #container .row .data.multi {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+}
+.dashboard-widget-host_overview #container .row .data .cell {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 60px 1fr;
+}
+.dashboard-widget-host_overview #container .row .data .cell .text {
+  font-size: 10px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+.dashboard-widget-host_overview #container .bar {
+  width: 100%;
+  height: var(--bar-height);
+  align-self: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.dashboard-widget-host_overview #container .bar .fill {
+  height: var(--bar-height);
+  border-radius: 10px;
+  width: 0%;
+  transition: all 250ms ease-out;
+}

@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2.0,
+  "id": "host_overview",
+  "type": "widget",
+  "name": "Host overview",
+  "namespace": "HostOverview",
+  "version": "1.1",
+  "author": "ObviousAIChicken",
+  "description": "Displays a configurable summary of a Linux or Windows host using the default host template. (github.com/obviousaichicken)",
+  "widget": {
+    "size": {
+      "width": 36,
+      "height": 3
+    },
+    "js_class": "CWidgetHostOverview"
+  },
+  "actions": {
+    "widget.host_overview.view": {
+      "class": "WidgetView"
+    }
+  },
+  "assets": {
+    "css": ["widget.css"],
+    "js": ["class.widget.js"]
+  }
+}
