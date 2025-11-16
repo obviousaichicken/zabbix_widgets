@@ -1,4 +1,4 @@
-These widgets have been used without issues on Zabbix 7.0.11, 7.0.19 and 7.0.21, but will likely work on all 6.x.x and 7.x.x versions.
+These widgets have been tested on Zabbix 7.0.21, 7.2.14 and 7.4.5.
 
 ## Host overview
 

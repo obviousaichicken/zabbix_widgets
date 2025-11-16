@@ -1,24 +1,28 @@
-class WidgetBanner extends CWidget {
+/*
+ * MIT License
+ * Copyright (c) 2025 ObviousAIChicken
+ * github.com/obviousaichicken/zabbix_widgets
+ */
 
-	onInitialize() {
-		this._refresh_frame = null;
-	}
+class CWidgetBanner extends CWidget {
+  onInitialize() {
+    this._refresh_frame = null;
+  }
 
-	processUpdateResponse(response) {
-		super.processUpdateResponse(response);
-	}
+  processUpdateResponse(response) {
+    super.processUpdateResponse(response);
+  }
 
-	setContents(response) {
-		// Call super method to ensure the base widget is set up correctly
-		super.setContents(response);
+  setContents(response) {
+    // Call super method to ensure the base widget is set up correctly
+    super.setContents(response);
 
-		// Ensure fields_values exists in the response
-		if (response.fields_values && Object.keys(response.fields_values).length > 0) {
-
-			const fields = response.fields_values;
-
-		}
-
-	}
-
+    // Ensure fields_values exists in the response
+    if (
+      response.fields_values &&
+      Object.keys(response.fields_values).length > 0
+    ) {
+      const fields = response.fields_values;
+    }
+  }
 }

@@ -6,6 +6,10 @@
  * github.com/obviousaichicken/zabbix_widgets
  */
 
+// Backwards compatibility
+// The ZBX_STYLE_COLOR_PICKER constant disappeared in Zabbix 7.4
+$color_picker_class = defined('ZBX_STYLE_COLOR_PICKER') ? ZBX_STYLE_COLOR_PICKER : null;
+
 $form = new CWidgetFormView($data);
 
 $form
@@ -54,8 +58,8 @@ $form
     )
     ->includeJsFile('widget.edit.js')
     ->addJavaScript('form.init(' . json_encode([
-        'color_picker_class' => ZBX_STYLE_COLOR_PICKER,
-    ]) . ');')
+        'color_picker_class' => $color_picker_class,
+    ], JSON_THROW_ON_ERROR) . ');')
     ->show();
 
 function getInterfaceHighViews(CWidgetFormView $form, array $fields): array

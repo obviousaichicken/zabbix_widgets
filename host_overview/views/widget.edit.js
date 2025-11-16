@@ -5,30 +5,35 @@
  */
 
 window.form = new (class {
-  // Init color pickers and field dependencies
   init(options) {
-    if (options && options.color_picker_class) {
+    // Color pickers
+    if (
+      options &&
+      options.color_picker_class &&
+      typeof jQuery !== "undefined" &&
+      jQuery.fn &&
+      typeof jQuery.fn.colorpicker === "function"
+    ) {
       this.initColorPickers(options.color_picker_class);
     }
-
+    // Field toggles
     this.initFieldDependencies();
   }
 
-  // Attach colorpicker to all color inputs
   initColorPickers(colorPickerClass) {
     const selector = `.${colorPickerClass} input`;
 
+    // Initialize color picker on all matching inputs
     for (const colorpicker of jQuery(selector)) {
       jQuery(colorpicker).colorpicker();
     }
 
-    // Close colorpickers when the widget properties overlay changes
     const overlay = overlays_stack.getById("widget_properties");
-
     if (!overlay || !overlay.$dialogue || !overlay.$dialogue[0]) {
       return;
     }
 
+    // Hide colorpickers when the overlay reloads or closes
     for (const event of ["overlay.reload", "overlay.close"]) {
       overlay.$dialogue[0].addEventListener(event, () => {
         jQuery.colorpicker("hide");

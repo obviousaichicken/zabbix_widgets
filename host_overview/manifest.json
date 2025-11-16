@@ -4,9 +4,9 @@
   "type": "widget",
   "name": "Host overview",
   "namespace": "HostOverview",
-  "version": "1.1",
+  "version": "1.2",
   "author": "ObviousAIChicken",
-  "description": "Displays a configurable summary of a Linux or Windows host using the default host template. (github.com/obviousaichicken)",
+  "description": "Displays a configurable summary of a Linux or Windows host using the default host template. (github.com/obviousaichicken/zabbix_widgets)",
   "widget": {
     "size": {
       "width": 36,

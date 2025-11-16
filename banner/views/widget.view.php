@@ -1,28 +1,25 @@
 <?php
 
-/**
+/*
  * MIT License
  * Copyright (c) 2025 ObviousAIChicken
  * github.com/obviousaichicken/zabbix_widgets
- **/
+ */
 
-declare(strict_types = 0);
-
-use Modules\banner\Widget;
-use Modules\banner\Includes\WidgetForm;
+use Modules\Banner\Widget;
 
 // Initialize style arrays for widget elements
-$widget_style = [];
-$title_style = [];
+$widget_style      = [];
+$title_style       = [];
 $description_style = [];
 
 // Widget settings
 $settings = $data['fields_values'];
 
 // Content visibility flags
-$has_title = !empty($settings['title']);
-$has_description = !empty($settings['description']);
-$has_bg_image = !empty($settings['bg_image']);
+$has_title       = ! empty($settings['title']);
+$has_description = ! empty($settings['description']);
+$has_bg_image    = ! empty($settings['bg_image']);
 
 // Set background color
 $widget_style[] = "background-color: #{$settings['bg_color']};";
@@ -60,10 +57,10 @@ if ($has_bg_image) {
 switch ($settings['horizontal_align']) {
     case 1:
         $settings['horizontal_align'] = 'text-align: center;';
-    break;
+        break;
     case 2:
         $settings['horizontal_align'] = 'text-align: end;';
-    break;
+        break;
 }
 
 // Set horizontal content alignment
@@ -80,7 +77,7 @@ if ($has_title) {
     $title_style[] = "color: #{$settings['title_color']};";
 
     // Set font size
-    $title_style[] = 'font-size: '.formatFontSize($settings['title_size']).';';
+    $title_style[] = 'font-size: ' . formatFontSize($settings['title_size']) . ';';
 
     // Set boldness
     if ($settings['title_bold']) {
@@ -103,12 +100,12 @@ if ($has_title) {
 }
 
 // Description rendering (if not in icon mode)
-if ($has_description && !$settings['icon_mode']) {
+if ($has_description && ! $settings['icon_mode']) {
     // Set font color
     $description_style[] = "color: #{$settings['description_color']};";
 
     // Set font size
-    $description_style[] = 'font-size: '.formatFontSize($settings['description_size']).';';
+    $description_style[] = 'font-size: ' . formatFontSize($settings['description_size']) . ';';
 
     // Set boldness
     if ($settings['description_bold']) {
