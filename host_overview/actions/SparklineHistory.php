@@ -297,16 +297,19 @@ class SparklineHistory extends CController
             'itemids' => [$itemid],
             'time_from' => $time_from,
             'time_till' => $time_till,
-            'sortfield' => 'clock',
-            'sortorder' => 'ASC',
         ]);
 
-        return array_map(static function(array $record): array {
+        // trend.get takes no sort parameters (7.x ignored them, 8.0 rejects them), so order the rows here.
+        $points = array_map(static function(array $record): array {
             return [
                 't' => (int) ($record['clock'] ?? 0),
                 'v' => (float) ($record['value_avg'] ?? 0),
             ];
         }, $records);
+
+        usort($points, static fn(array $left, array $right): int => $left['t'] <=> $right['t']);
+
+        return $points;
     }
 
     private function applyMetricTransforms(array $points, array $request): array
