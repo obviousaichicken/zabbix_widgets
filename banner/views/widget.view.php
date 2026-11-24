@@ -68,7 +68,7 @@ $widget_style[] = $settings['horizontal_align'];
 
 // Create the widget component
 $widget = (new CDiv())
-    ->addClass('banner')
+    ->addClass('banner-widget')
     ->setAttribute('style', implode(' ', $widget_style));
 
 // Title rendering
