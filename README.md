@@ -1,4 +1,4 @@
-These widgets have been tested on Zabbix 7.0.24, 7.2.15 and 7.4.8.
+These widgets have been tested on Zabbix 7.0.32 and 8.0.0.
 
 **Installation**
 
