@@ -2,3 +2,4 @@ include:
   - ./docker-compose.zbx70.yaml
   - ./docker-compose.zbx72.yaml
   - ./docker-compose.zbx74.yaml
+  - ./docker-compose.zbx80.yaml

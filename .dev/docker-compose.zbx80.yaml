@@ -1,76 +1,76 @@
 services:
-  zbx74_database:
+  zbx80_database:
     image: mariadb:11.4
-    container_name: zbx74_database
+    container_name: zbx80_database
     environment:
       MARIADB_DATABASE: ${ZBX_DB_NAME}
       MARIADB_USER: ${ZBX_DB_USER}
       MARIADB_PASSWORD: ${ZBX_DB_PASSWORD}
       MARIADB_ROOT_PASSWORD: ${ZBX_DB_ROOT_PASSWORD}
     volumes:
-      - zbx74_data:/var/lib/mysql
+      - zbx80_data:/var/lib/mysql
     networks:
-      - zbx74_network
+      - zbx80_network
     restart: unless-stopped
 
-  zbx74_server:
-    image: zabbix/zabbix-server-mysql:alpine-7.4-latest
-    container_name: zbx74_server
+  zbx80_server:
+    image: zabbix/zabbix-server-mysql:alpine-8.0-latest
+    container_name: zbx80_server
     environment:
-      DB_SERVER_HOST: zbx74_database
+      DB_SERVER_HOST: zbx80_database
       MYSQL_DATABASE: ${ZBX_DB_NAME}
       MYSQL_USER: ${ZBX_DB_USER}
       MYSQL_PASSWORD: ${ZBX_DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ZBX_DB_ROOT_PASSWORD}
     depends_on:
-      - zbx74_database
+      - zbx80_database
     networks:
-      - zbx74_network
+      - zbx80_network
     restart: unless-stopped
 
-  zbx74_web:
-    image: zabbix/zabbix-web-nginx-mysql:alpine-7.4-latest
-    container_name: zbx74_web
+  zbx80_web:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-8.0-latest
+    container_name: zbx80_web
     environment:
-      ZBX_SERVER_HOST: zbx74_server
-      ZBX_SESSION_NAME: zbx74
-      DB_SERVER_HOST: zbx74_database
+      ZBX_SERVER_HOST: zbx80_server
+      ZBX_SESSION_NAME: zbx80
+      DB_SERVER_HOST: zbx80_database
       MYSQL_DATABASE: ${ZBX_DB_NAME}
       MYSQL_USER: ${ZBX_DB_USER}
       MYSQL_PASSWORD: ${ZBX_DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${ZBX_DB_ROOT_PASSWORD}
       PHP_TZ: Europe/Amsterdam
-      ZBX_SERVER_NAME: "Zabbix 7.4"
+      ZBX_SERVER_NAME: "Zabbix 8.0"
     depends_on:
-      - zbx74_database
-      - zbx74_server
+      - zbx80_database
+      - zbx80_server
     ports:
-      - "7474:8080"
+      - "8080:8080"
     volumes:
       - ../banner:/usr/share/zabbix/modules/banner:Z
       - ../host_overview:/usr/share/zabbix/modules/host_overview:Z
     networks:
-      - zbx74_network
+      - zbx80_network
     restart: unless-stopped
 
-  zbx74_agent:
-    image: zabbix/zabbix-agent2:alpine-7.4-latest
-    container_name: zbx74_agent
+  zbx80_agent:
+    image: zabbix/zabbix-agent2:alpine-8.0-latest
+    container_name: zbx80_agent
     environment:
-      ZBX_HOSTNAME: zbx74_agent
-      ZBX_SERVER_HOST: zbx74_server
+      ZBX_HOSTNAME: zbx80_agent
+      ZBX_SERVER_HOST: zbx80_server
       ZBX_PASSIVE_ALLOW: false
     depends_on:
-      - zbx74_database
-      - zbx74_server
-      - zbx74_web
+      - zbx80_database
+      - zbx80_server
+      - zbx80_web
     networks:
-      - zbx74_network
+      - zbx80_network
     restart: unless-stopped
 
 networks:
-  zbx74_network:
+  zbx80_network:
     driver: bridge
 
 volumes:
-  zbx74_data:
+  zbx80_data:
