@@ -4,7 +4,7 @@
   "type": "widget",
   "name": "Host overview",
   "namespace": "HostOverview",
-  "version": "1.3",
+  "version": "1.4",
   "author": "ObviousAIChicken",
   "description": "Displays a configurable summary of a Linux or Windows host using the default host template. (github.com/obviousaichicken/zabbix_widgets)",
   "widget": {
@@ -35,6 +35,9 @@
       "widget.default.css",
       "widget.sparkline.css"
     ],
-    "js": ["class.sparkline.js", "class.widget.js"]
+    "js": [
+      "class.sparkline.js",
+      "class.widget.js"
+    ]
   }
 }
